@@ -1,0 +1,52 @@
+var dancer2;
+var dancer3;
+var dancer1;
+
+function visible() {
+  setBackgroundEffectWithPalette("diamonds", "vintage");
+  setVisibleEach(sprites, true);
+  setForegroundEffectExtended("none");
+}
+
+function invisible() {
+  setBackgroundEffectWithPalette("disco", "electronic");
+  setVisibleEach(sprites, false);
+  setForegroundEffectExtended("emojis");
+}
+
+function _aiden_s_gg_song() {
+  setBackgroundEffectWithPalette("diamonds", "vintage");
+  makeNewDanceSprite("DUCK", 'dancer2', {x: 300, y: 200});
+  makeNewDanceSprite("CAT", 'dancer3', {x: 100, y: 200});
+  makeNewDanceSprite("ROBOT", 'dancer1', {x: 200, y: 200});
+  makeNewDanceSpriteGroup(20, "ALIEN", "x");
+  jumpTo('dancer3', {x: 300, y: 200});
+  jumpTo('dancer2', {x: 100, y: 200});
+  jumpTo('dancer1', {x: 200, y: 200});
+  setProp('dancer1', "scale", 50);
+  setProp('dancer2', "scale", 50);
+  setProp('dancer3', "scale", 50);
+  changeMoveLR('dancer1', MOVES.Floss, -1);
+  changeMoveLR('dancer2', MOVES.DoubleJam, -1);
+  changeMoveLR('dancer3', MOVES.ClapHigh, -1);
+}
+
+whenSetup(function () {
+  aiden_s_gg_song();
+});
+
+whenKey("right", function () {
+  setDanceSpeedEach(sprites, 4);
+});
+
+whenKey("down", function () {
+  visible();
+});
+
+whenKey("up", function () {
+  invisible();
+});
+
+whenKey("left", function () {
+  setDanceSpeedEach(sprites, 1);
+});
